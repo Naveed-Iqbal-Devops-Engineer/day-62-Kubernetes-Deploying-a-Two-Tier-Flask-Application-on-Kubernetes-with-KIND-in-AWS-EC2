@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-deployment
-  namespace: flask-app62
+  namespace: flask-day63
 spec:
   replicas: 2
   selector:
@@ -15,12 +15,12 @@ spec:
     spec:
       containers:
         - name: flask
-          image: thedevopsengineer/day62-kubernetes-internship:v1
+          image: thedevopsengineer/day62-kubernetes-internship:v2
           ports:
             - containerPort: 5000
           env:
             - name: MYSQL_HOST
-              value: "mysql-service.mysql-db.svc.cluster.local"
+              value: "mysql-service.mysql-day63"   # ✅ Correct namespace
             - name: MYSQL_USER
               value: "root"
             - name: MYSQL_PASSWORD
